@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)http://www.dcloud.io/hellomui/examples/input.html -->
+<html style="background-image: url(images/haidi.jpg);">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<title>MEMORY</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="./Hello MUI_files/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="./Hello MUI_files/app.css">
+		<link rel="stylesheet" href="css/reset.min.css">
+		<link rel="stylesheet" href="UI材料/jquery-css3-circle-pop-menu/css/style.css">
+		<style>
+			h5 {
+				margin: 5px 7px;
+			}
+		</style>
+		
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+		<style type="text/css">
+			.divcss{
+				width: 100%;
+				height: 300px;
+				overflow: auto;
+				
+			}
+			a:hover,a:focus{
+				text-decoration: none;
+				outline: none;
+			}
+			#accordion{
+				padding-right: 24px;
+				padding-left: 24px;
+				z-index: 1;
+			}
+			#accordion .panel{
+				border: none;
+				box-shadow: none;
+			}
+			#accordion .panel-heading{
+				padding: 0;
+				border-radius: 0;
+				border: none;
+			}
+			#accordion .panel-title{
+				padding: 0;
+			}
+			#accordion .panel-title a{
+				display: block;
+				font-size: 15px;
+				font-weight: bold;
+				background: deepskyblue;/*/展开方色11111111111111111111111111111111111111111111111111111111111111111111111111111*/
+				color: #e4e4e4;/*/展开字色222222222222222222222222222222222222222222222222222222222222222222222222222222222222222*/
+				padding: 15px 25px;
+				position: relative;
+				margin-left: -24px;
+				transition: all 0.3s ease 0s;
+			}
+			#accordion .panel-title a.collapsed{
+				background: dodgerblue;/*收回方色333333333333333333333333333333333333333333333333333333333333333333333333333333333333333*/
+				color: #e4e4e4;/*收回字色22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222*/
+				margin-left: 0;
+				transition: all 0.3s ease 0s;
+			}
+			#accordion .panel-title a:before{
+				content: "";
+				border-left: 24px solid deepskyblue;/*展开右色111111111111111111111111111111111111111111111111111111111111111111*/
+				border-top: 24px solid transparent;
+				border-bottom: 24px solid transparent;
+				position: absolute;
+				top: 0;
+				right: -24px;
+				transition: all 0.3s ease 0s;
+			}
+			#accordion .panel-title a.collapsed:before{
+				border-left-color:  dodgerblue;/*收回右色33333333333333333333333333333333333333333333333333333333333333333333333333333333333333*/
+			}
+			#accordion .panel-title a:after{
+				content: "\f106";
+				font-family: 'FontAwesome';
+				position: absolute;
+				top: 30%;
+				right: 15px;
+				font-size: 18px;
+				color: #e4e4e4;/*展开箭头2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222*/
+			}
+			#accordion .panel-title a.collapsed:after{
+				content: "\f107";
+				color: #e4e4e4;/*收回箭头222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222*/
+			}
+			#accordion .panel-collapse{
+				position: relative;
+			}
+			#accordion .panel-collapse.in:before{
+				content: "";
+				border-right: 24px solid dodgerblue;/*展开角落33333333333333333333333333333333333333333333333333333333333333333333333333333333333333*/
+				border-bottom: 18px solid transparent;
+				position: absolute;
+				top: 0;
+				left: -24px;
+			}
+			#accordion .panel-body{
+				font-size: 14px;
+				color: #333;
+				background: #e4e4e4;
+				border-top: none;
+				z-index: 1;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			var allcontent = "";
+			function junmpleft()
+			{
+				window.history.back();
+			}
+			function junmpright()
+			{
+				window.history.forward();
+			}
+			
+			
+			//一下为评论定义了一个栈
+			function Stack(){
+			    this.dataStore = []; //评论
+			    this.top = 0;		 //栈顶
+			    /*栈的内建方法*/
+			    this.push = push;
+			    this.pop = pop;
+			    this.peek = peek;
+			    this.clear = clear;
+			    this.length = length;
+			    this.indexof = indexof;
+			}
+		    //入栈
+		    function indexof(element){
+		    	return this.dataStore[element];
+		    }
+		    function push(element){
+		        this.dataStore[this.top++] = element;
+		    }
+		    //出栈
+		    function pop(){
+		        return this.dataStore[--this.top];
+		    }
+		    //返回栈顶元素
+		    function peek(){
+		        return this.dataStore[this.top-1];
+		    }
+		    //清空栈
+		    function clear(){
+		        this.top = 0;
+		    }
+		    //返回栈长度
+		    function length(){
+		        return this.top;
+		    }
+		</script>
+	</head>
+
+	<body style="background-image: url(images/haidi.jpg);">
+
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-arrowright mui-pull-right" onclick="junmpright()"></a>
+			<a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left" onclick="junmpleft()"></a>
+			<h1 class="mui-title"><b>留言板</b></h1>
+		</header>
+		<div class="mui-content" style="background-image: url(images/haidi.jpg);">
+
+	<!--<div class="mui-content-padded" style="margin: 1px;">-->
+			<script type="text/javascript">
+					function junmpTo(){
+						window.location.href = "message_save.php";
+					}
+				</script>
+			<textarea id="textarea" style="width:100%; opacity: 0.7;" rows="1" placeholder="留住感动......" readonly="readonly" onclick="junmpTo()"></textarea>
+	
+	
+	
+	
+			<script type="text/javascript">
+				scrollUnique = function() {
+				    return $(this).each(function() {
+				        var eventType = 'mousewheel';
+				        if (document.mozHidden !== undefined) {
+				            eventType = 'DOMMouseScroll';
+				        }
+				        $(this).on(eventType, function(event) {
+				            // 一些数据
+				            var scrollTop = this.scrollTop,
+				                scrollHeight = this.scrollHeight,
+				                height = this.clientHeight;
+				
+				            var delta = (event.originalEvent.wheelDelta) ? event.originalEvent.wheelDelta : -(event.originalEvent.detail || 0);        
+				
+				            if ((delta > 0 && scrollTop <= delta) || (delta < 0 && scrollHeight - height - scrollTop <= -1 * delta)) {
+				                // IE浏览器下滚动会跨越边界直接影响父级滚动，因此，临界时候手动边界滚动定位
+				                this.scrollTop = delta > 0? 0: scrollHeight;
+				                // 向上滚 || 向下滚
+				                event.preventDefault();
+				            }        
+				        });
+				    });	
+				};
+				document.getElementsByClassName("lalala").scrollUnique();
+//				$('#lalala').scrollUnique();
+			</script>
+			
+			
+			<!--<div class="divcss"></div>-->
+			<div class="demo divcss" id="lalala" style="opacity: 0.7; padding: 1em 0;">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-offset-3 col-md-6">
+							<div class="panel-group " id="accordion" role="tablist" aria-multiselectable="true">
+								<script type="text/javascript">
+										var xmlHttp = GetXmlHttpObject();
+										var url="pushall_message.php";
+										url=url+"?sid="+Math.random();
+										xmlHttp.onreadystatechange=stateChanged;
+										xmlHttp.open("POST",url,false);
+										xmlHttp.send(null);
+										
+										function stateChanged(){
+											if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){ 
+										 		document.write(xmlHttp.responseText);
+										 		return ;
+											}
+										}
+										
+										
+										
+										function GetXmlHttpObject(){
+											var xmlHttp=null;
+											try{
+												xmlHttp=new XMLHttpRequest();
+											}catch (e){
+												try{
+													xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+												}catch (e){
+													xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+												}
+											}
+											return xmlHttp;
+										}
+										
+								</script>
+								<!--<div class="panel panel-default">
+									<div class="panel-heading" role="tab" id="xxxxx">
+										<h4 class="panel-title">
+											<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#zzzzz" aria-expanded="false" aria-controls="zzzzz">
+												Section 5
+											</a>
+										</h4>
+									</div>
+									<div id="zzzzz" class="panel-collapse collapse" role="tabpanel" aria-labelledby="xxxxx">
+										<div class="panel-body">
+											<p>  </p>
+										</div>
+									</div>
+								</div>-->
+								
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+			
+			<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+			<script src="js/bootstrap.min.js"></script>
+			
+
+	
+
+			
+		<div  class='menu closed' >
+			  <div class='messages button' align="center">爱</div>
+			  <div class='music button'align="center">聪</div>
+			  <div class='home button'align="center">聪</div>
+			  <div class='places button'align="center">冠</div>
+			  <div class='bookmark button'align="center">冠</div>
+			  <div class='main button'>love</div>
+		</div>
+	</div>
+		
+
+	<script src='js/jquery-2.2.4.min.js'></script>
+	<script  src="js/index.js"></script>
+
+	</body>
+</html>
+
+<!--<div class="mui-button-row">
+	<button type="button" class="mui-btn mui-btn-primary" onclick="sure()">确认</button>&nbsp;&nbsp;
+	<button type="button" class="mui-btn mui-btn-danger" onclick="cancel()">取消</button>
+</div>-->

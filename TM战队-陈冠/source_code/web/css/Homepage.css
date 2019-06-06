@@ -1,0 +1,110 @@
+ul {
+	/*position: relative;*/
+	/*top: 13%;*/
+	/*height: 200px;*/
+	list-style: none;
+	margin: 50px auto;
+	/*			width: 100px;*/
+}
+
+a {
+	height: 50px;
+	border-style: outset;
+	background-color: white;
+	opacity: .6;
+	-webkit-transition: .5s;
+	-moz-transition: .5s;
+	-ms-transition: .5s;
+	-o-transition: .5s;
+	transition: .5s;
+}
+
+ul:hover a {
+	box-shadow: 0 0 15px 5px aqua;
+	opacity: .25;
+	-webkit-transform: scale(.8);
+	-moz-transform: scale(.8);
+	-ms-transform: scale(.8);
+	-o-transform: scale(.8);
+	transform: scale(.8);
+}
+
+ul a:hover {
+	box-shadow: none;
+	opacity: .8;
+	-webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	-o-transform: scale(1.2);
+	transform: scale(1.2);
+}
+
+p {
+	color: #000000;
+	line-height: 10px;
+	font-size: 20px;
+}
+
+#customer {
+	width: 80%;
+	position: absolute;
+	top: 72%;
+	left: 10%;
+}
+
+#service {
+	width: 80%;
+	position: absolute;
+	top: 81%;
+	left: 10%;
+}
+
+
+
+#delivery {
+	width: 80%;
+	position: absolute;
+	right: 10%;
+	top: 90%;
+}
+
+#entry {
+	position: absolute;
+	left: 25%;
+	top: 30%;
+	width: 50%;
+	height: 30%;
+}
+
+input {
+	position: relative;
+	height: 50px;
+	width: 250px;
+	border: 2px solid #000000;
+	text-align: center;
+	border-radius: 20%;
+	font-size: 40px;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+#enter {
+	position: relative;
+	left: 5%;
+	width: 40%;
+	height: 100px;
+	font-size: 40px;
+	text-align: center;
+	background: none;
+	border: 2px solid #000000;
+}
+
+#back {
+	position: relative;
+	left: 15%;
+	width: 40%;
+	height: 100px;
+	font-size: 40px;
+	text-align: center;
+	background: none;
+	border: 2px solid #000000;
+}

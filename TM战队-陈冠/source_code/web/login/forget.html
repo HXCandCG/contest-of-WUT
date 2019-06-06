@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="../css/logineed.css" rel="stylesheet" />
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style type="text/css">
+			.code{
+			        font-family:Arial;
+			        font-style:italic;
+			         color:blue;
+			         font-size:30px;
+			         border:0;
+			         padding:2px 3px;
+			         letter-spacing:3px;
+			         font-weight:bolder;             
+			         float:left;            
+			         cursor:pointer;
+			         width:150px;
+			         height:60px;
+			         line-height:60px;
+			         text-align:center;
+			         vertical-align:middle;
+			         margin: 4px;
+			
+			}
+		    a{
+		        text-decoration:none;
+		        font-size:12px;
+		        color:#288bc4;
+		    }
+		    a:hover {
+		       text-decoration:underline;
+		    }
+		</style>
+		<title>找回密码</title>
+	</head>
+	<body onload="createCode()">
+		
+		
+
+		
+		<div id="login_ui"  class="mui-content" style="background-size:cover; background-image: none">
+			
+			<form id="login-form" class="mui-input-group">
+				<div class="mui-input-row">
+					<label>手机号</label>
+					<input id="forget_phone" type="text" class="mui-input-clear mui-input" placeholder="请输入手机号">
+				</div>
+				<div class="mui-input-row">
+					<label>邮箱</label>
+					<input id="forget_email" type="text" class="mui-input-clear mui-input" placeholder="请输入邮箱">
+				</div>
+				<div class="mui-input-row">
+					<label>新密码</label>
+					<input id="newPassword" type="password" class="mui-input-clear mui-input" placeholder="请输入匹配正确后的新密码">
+				</div>
+				<div class="mui-input-row">
+					<label>重复新密码</label>
+					<input id="newrepeatPassword" type="password" class="mui-input-clear mui-input" placeholder="请再次输入新密码">
+				</div>
+				<div class="mui-input-row">
+					<label>验证码：</label>
+					<input id="inputCode" type="text" class="mui-input-clear mui-input" placeholder="可以不注意大小写">	
+				</div>
+			</form>
+			
+			<tr><!--<a  href="#">看不清换一张</a>-->
+            	<td> <div class="code" id="checkCode" onclick="createCode()" ></div></td>
+            	<td><font style="line-height: 60px;"  onclick="createCode()" size="5" color="#007AFF"><center >看不清换一张</center></font></td>
+        	</tr>
+			
+			<div class="mui-content-padded">
+				<button id="getback" class="mui-btn mui-btn-block mui-btn-primary">修改密码</button>
+				<button id="back" onclick="javascript:window.location.href ='login.php' " class="mui-btn mui-btn-block mui-btn-primary">返回</button>
+			</div>
+			
+		</div>
+		
+		<script src="../javascript/To_login_Js/forget_page.js"></script>
+		
+		<script src="../javascript/To_login_Js/mui.min.js"></script>
+	
+	
+	
+	</body>
+		
+	
+</html>

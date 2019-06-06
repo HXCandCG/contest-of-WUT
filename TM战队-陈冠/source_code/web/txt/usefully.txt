@@ -1,0 +1,43 @@
+var backhttp = GetXmlHttpObject();
+var url="/web/tomysql/callback.php";
+url = url + "?forget_phone=" + forget_phone;
+url = url + "&forget_email=" + forget_email;
+url = url + "&newPassword=" + newPassword;
+url = url + "&sid="+ Math.random();
+backhttp.open("POST",url,false);
+backhttp.send(null);
+if (backhttp.readyState==4 || backhttp.readyState=="complete"){ }
+
+function GetXmlHttpObject(){
+	var xmlHttp=null;
+	try{
+		xmlHttp=new XMLHttpRequest();
+	}catch (e){
+		try{
+			xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+		}catch (e){
+			xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+	}
+	return xmlHttp;
+}
+
+
+
+
+
+$dbhost = 'localhost:3306';
+$dbuser = 'root';
+$dbpass = 'HXCg0402.';
+$dbname = 'codepay';
+$con = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
+if(! $con) {
+	echo 'Could not connect';
+}
+$sql ="";
+$result = $con->query($sql);
+$row = mysqli_fetch_Array($result);
+mysqli_affected_rows($con)!=0
+mysqli_close($con);
+
+|土豆烧肉|土豆烧肉|黑椒牛柳|黑椒牛柳|冰红茶小瓶|冰红茶小瓶|利群|利群|

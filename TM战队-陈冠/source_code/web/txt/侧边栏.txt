@@ -1,0 +1,93 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style>
+			
+			.navs {
+				
+				background: #000000;
+				position: fixed;
+				top: 200px;
+				height: 14%;
+				width: 200px;
+				left: -145px;
+				table-layout: fixed;	
+				opacity: 0.6;
+				border-radius: 5px;
+				overflow: hidden;
+			}
+			
+			.menu{
+				float: right;
+				height: 100%;
+				width: 21%;
+				display: table-cell; padding-left: 5px;
+				border-left: white solid 8px;
+				
+			}
+			
+			textarea{
+				width: 72.5%;
+				color: white;
+				height: 100%;
+				background-color: #000000
+			}
+		</style>
+
+		<script type="text/javascript">
+			var hide_width = -145;
+			var intHide;
+			var intShow;
+			var speed = 3;
+			var flag = true;
+			function show_hide()
+			{
+				if(flag){
+					clearInterval(intHide);
+					intShow = setInterval("show()", 10);
+					flag = !flag; 
+				}else{
+					clearInterval(intShow);
+					intHide = setInterval("hide()", 10);
+					flag = !flag; 
+				}
+			}
+
+
+			function show()
+			{
+				if(hide_width < 0)
+				{
+					hide_width = hide_width + speed;
+					document.getElementById('myMenu').style.left = hide_width;
+				}
+			}
+
+			function hide()
+			{
+				if(hide_width > -145)
+				{
+					hide_width = hide_width - speed;
+					document.getElementById('myMenu').style.left = hide_width;
+				}
+			}
+			
+		</script>
+
+	</head>
+
+	<body>
+
+		<div id="myMenu" class="navs" onclick="show_hide()">
+			<div class="menu">
+				<font size="5" color="white"><b>ÒÑ</b></font>
+				<br />
+				<br />
+				<font size="5" color="white"><b>µã</b></font>
+			</div>
+			<textarea placeholder="ÔÝÎÞ" readonly="readonly"></textarea>
+		</div>
+	</body>
+
+</html>
